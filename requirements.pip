@@ -1,0 +1,13 @@
+pyes
+redis
+flask
+Flask-Script
+gunicorn
+https://github.com/messense/wechatpy/archive/master.zip
+PyCrypto
+scrapyd
+python-scrapyd-api
+scrapyd-client
+jieba
+Whoosh
+pymongo

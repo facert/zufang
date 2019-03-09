@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <!--<meta http-equiv="Access-Control-Allow-Origin" content="*">-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>嗅房助手</title>
+    <!--<script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>-->
+    <style>
+        a:link{
+            text-decoration: none;
+            color: #333;
+            cursor: pointer;
+        }
+        a:visited{
+            text-decoration: none;
+            color: #551a8b;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            width: 100%;
+        }
+        .search-bar{
+            width: 92%;
+            background: #88b04b;
+            padding: 4%;
+        }
+        .search-bar .search-input{
+            width: 70%;
+            padding: 8px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+        }
+        .search-bar #search-btn{
+            width: 18%;
+            font-size: 14px;
+            letter-spacing: 3px;
+            padding: 7px 0;
+            float: right;
+            color: #ffffff;
+            border: solid 1px #ffffff;
+            background: #92a8d1;
+            border-radius: 5px;
+        }
+        .description{
+            width: 90%;
+            background: #ebebeb;
+            padding: 2% 5%;
+        }
+        .description .txt{
+            margin: 0;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+        .slice{
+            width: 92%;
+            margin: 4%;
+            border-bottom: solid 1px #333333;
+        }
+        .search-result{
+            width: 92%;
+            margin: 4%;
+        }
+        .search-result table tr{
+            background: #ebebeb;
+        }
+        .search-result table tr:nth-child(even){
+            background: #ffffff;
+        }
+
+        .search-result table td{
+            padding: 10px 0;
+        }
+
+        .search-result table .result-item .title{
+            width: 70%;
+        }
+        .search-result table .result-item .time{
+            width: 25%;
+            text-align: center;
+        }
+
+        .search-result table .headtitle, .headtime{
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="search-bar">
+            <form action="/" >
+                <input class="search-input" type="text" placeholder="请输入租房关键词" value="{{keywords}}" name="keywords"/>
+                <button id="search-btn" type="submit">搜索</button>
+            </form>
+        </div>
+        <div class="description">
+            <p class="txt">关键词搜索支持地点, 地铁线路, 以及关键词组合，空格隔开， 例如【方庄 蒲黄榆 望京 14号线】</p>
+        </div>
+        <div class="slice">
+
+        </div>
+        <div class="search-result">
+            <table>
+                <tr class="head">
+                    <td class="headtitle">房源</td>
+                    <td class="headtime">发布时间</td>
+                </tr>
+
+                {% for i in results %}
+                <tr class="result-item">
+                    <td class="title">
+                        <a href="{{i.url}}">{{i.title}}</a>
+                    </td>
+                    <td class="time">
+                        {{i.create_time}}
+                    </td>
+                </tr>
+                {% endfor %}
+
+
+            </table>
+        </div>
+    </div>
+
+</body>
+<script>
+
+</script>
+</html>
